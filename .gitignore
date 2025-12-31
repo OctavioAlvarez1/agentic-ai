@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Environment variables
+.env
+
+# OS / Editor
+.DS_Store
+.vscode/
+
+# RAG generated files
+chunks-*.csv
+embeddings-*.csv
+
+# Outputs
+output_agentic_workflow.txt

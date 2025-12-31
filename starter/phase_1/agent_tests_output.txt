@@ -1,0 +1,149 @@
+====================================
+DirectPromptAgent Test Output
+====================================
+
+Command Executed:
+python phase_1/direct_prompt_agent.py
+
+Prompt:
+What is the capital of France?
+
+Response:
+The capital of France is Paris.
+
+Explanation:
+This agent uses general world knowledge learned by the underlying language model (gpt-3.5-turbo) during training.
+No additional persona or external knowledge was provided, so the response is based purely on inherent LLM knowledge.
+
+
+====================================
+AugmentedPromptAgent Test Output
+====================================
+
+Command Executed:
+python phase_1/augmented_prompt_agent.py
+
+Prompt:
+What is the capital of France?
+
+Response:
+Dear students,
+
+The capital of France is Paris.
+
+Sincerely,
+Your Professor
+
+Explanation:
+This agent combines inherent LLM knowledge with a system prompt that defines a persona.
+The persona ("college professor") directly influences the tone, structure, and style of the response,
+while the factual content still comes from the model’s internal knowledge.
+
+
+====================================
+KnowledgeAugmentedPromptAgent Test Output
+====================================
+
+Command Executed:
+python phase_1/knowledge_augmented_prompt_agent.py
+
+Prompt:
+What is the capital of France?
+
+Response:
+Dear students, knowledge-based assistant. The capital of France is London, not Paris.
+
+Explanation:
+This agent explicitly ignores its inherent world knowledge and relies only on the provided external knowledge.
+Even though the answer contradicts real-world facts, the response demonstrates correct behavior by strictly
+using the supplied knowledge source.
+
+
+====================================
+EvaluationAgent Test Output
+====================================
+
+Command Executed:
+python phase_1/evaluation_agent.py
+
+Prompt Evaluated:
+London
+
+Final Response:
+London
+
+Evaluation Result:
+Yes, the answer provided meets the criteria as it is solely the name of a city and not a sentence.
+
+Iterations:
+3
+
+Explanation:
+The EvaluationAgent iteratively checks whether the evaluated agent’s output meets the specified criteria.
+It confirms correctness and stops once the criteria are satisfied.
+
+
+====================================
+RoutingAgent Test Output
+====================================
+
+Command Executed:
+python phase_1/routing_agent.py
+
+Prompts:
+- Tell me about the history of Rome, Texas
+- Tell me about the history of Rome, Italy
+- One story takes 2 days, and there are 20 stories
+
+Responses:
+- Historical explanation of Rome, Texas
+- Historical explanation of Rome, Italy
+- It will take 40 days to complete 20 stories.
+
+Explanation:
+The RoutingAgent uses semantic embeddings to compare the user prompt against agent descriptions.
+It selects the most relevant agent based on similarity and routes the prompt accordingly.
+
+
+====================================
+ActionPlanningAgent Test Output
+====================================
+
+Command Executed:
+python phase_1/action_planning_agent.py
+
+Prompt:
+One morning I wanted to have scrambled eggs
+
+Extracted Steps:
+1. Crack eggs into a bowl
+2. Beat eggs with a fork until mixed
+3. Heat pan with butter or oil over medium heat
+4. Pour egg mixture into pan
+5. Stir gently as eggs cook
+6. Remove from heat when eggs are just set but still moist
+7. Season with salt and pepper
+8. Serve immediately
+
+Explanation:
+The ActionPlanningAgent extracts ordered, executable steps from a high-level request
+using its domain-specific knowledge, without adding extra context or explanation.
+
+
+====================================
+RAGKnowledgePromptAgent Test Output
+====================================
+
+Command Executed:
+python phase_1/rag_knowledge_prompt_agent.py
+
+Prompt:
+What is the podcast that Clara hosts about?
+
+Response:
+Clara hosts a podcast called Crosscurrents about science.
+
+Explanation:
+The RAGKnowledgePromptAgent chunks the provided knowledge, generates embeddings,
+performs similarity search to retrieve the most relevant context, and generates
+a response strictly grounded in the retrieved information.
