@@ -52,7 +52,7 @@ Agents interact dynamically to produce structured outputs that resemble real-wor
 ---
 
 ## 📁 Repository Structure
-
+```
 starter/
 ├── phase_1/
 │   ├── workflow_agents/
@@ -77,7 +77,7 @@ starter/
 │   └── .env
 ├── requirements.txt
 └── README.md
-
+```
 ## 🧪 Testing & Validation
 
 Each agent includes a standalone executable test script that demonstrates:
